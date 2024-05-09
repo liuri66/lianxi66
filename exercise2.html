@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格隔行换色 要求： 除表格标题外，实现隔行变色效果</title>
+</head>
+<body >
+    <div>
+
+    </div>
+    <!-- 利用循环来对表头以外的行进行循环，单双行的颜色不一样 -->
+    <el-table :row-class-name="tableRowClassName" :data="tableData" style="width: 100%">
+        <el-table-column prop="date" label="Date" width="180" />
+        <el-table-column prop="name" label="Name" width="180" />
+        <el-table-column prop="address" label="Address" />
+        <el-table-column prop="address" label="Address" />
+      </el-table>
+    <script lang="ts">
+       // 表格隔行变色
+       tableRowClassName({ rowIndex }) {
+     if ((rowIndex + 1) % 2 === 0) {
+          return 'oddRow';
+     }
+      return 'evenRow';
+ },
+        const tableData = [
+        {
+            date: '2016-05-03',
+            name: 'Tom',
+            address: 'No. 189, Grove St, Los Angeles',
+        },
+        {
+            date: '2016-05-02',
+            name: 'Tom',
+            address: 'No. 189, Grove St, Los Angeles',
+        },
+        {
+            date: '2016-05-04',
+            name: 'Tom',
+            address: 'No. 189, Grove St, Los Angeles',
+        },
+        {
+            date: '2016-05-01',
+            name: 'Tom',
+            address: 'No. 189, Grove St, Los Angeles',
+        },
+        ]
+    </script>
+    <style>
+            .el-table--striped .el-table__body tr.el-table__row--striped.el-table__row--striped
+            .el-table__row--striped td {
+            background-color:#eaf3fb;
+            }
+    </style>
+</body>
+</html>

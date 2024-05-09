@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="s1">
+        <font>1</font>
+        <span>2</span>
+        <div>3</div>
+    </div>
+
+    <script>
+        var s1 = document.getElementById("s1");
+        var num=0;
+
+        var c = s1.children;
+        for (var i = 0; i < c.length; i++) {
+            num+=parseInt(c[i].innerHTML);
+        }
+        alert(num);
+        c
+        console.log(num)
+    </script>
+</body>
+</html>

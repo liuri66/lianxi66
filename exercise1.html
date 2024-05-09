@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 第一题：实现5张图片每隔一秒轮流循环切换（到最后一张时在从第一张开始轮播） -->
+    <div id="div" style="margin: 100px 800px;">
+        <img id="obj"  src="">
+    </div>
+    <!-- <div> <><img src="picture/2.jpg" alt=""></div> -->
+    <script>
+        // 声明实例化一个数组arr，数据里面放五张图片
+        const arr = new  Array();
+        // 把五张照片加入数组里
+        arr[0] ="picture/2.jpg"
+        arr[1]="picture/3.jpg";
+        arr[2]="picture/bg.jpg";
+        arr[3]="picture/1.jpg"
+        arr[4]="picture/0.jpg"
+        let curIndex =0;
+        // 使用一个时间间隔函数对图片数组进行循环  Window提供了setInterval() 方法重复调用一个函数或执行一个代码片段，在每次调用之间具有固定的时间间隔，比如这个5s调用一次。 
+        setInterval(function () {
+            //通过数组将图片的src属性进行修改
+            // getElementById() 方法返回一个表示 id 属性与指定字符串相匹配的元素的 Element 对象这里是指obj的img对象。由于元素的 ID 在指定时必须是独一无二的，因此这是快速访问特定元素的有效方法
+            const obj =document.getElementById("obj")
+            // 做判断
+            if (curIndex==arr.length-1) {
+                curIndex=0;
+            }
+            else{
+                curIndex+=1;
+            }
+            // 输出索引
+            obj.src=arr[curIndex]
+            console.log(curIndex);
+            // 5秒切换
+        },5000)
+        // var arr=new Array();
+        // arr[0]="picture/2.jpg";
+        // arr[1]="picture/3.jpg";
+        // arr[2]="picture/bg.jpg";
+        // arr[3]="picture/1.jpg"
+        // var curIndex=0;
+        // setInterval(function(){
+        //     //通过数组将图片的src属性进行修改
+        //     var obj=document.getElementById("obj");
+        //     //var img=document.getElementById("img");
+        //     if(curIndex==arr.length-1){
+        //         curIndex=0;
+        //     }
+        //     else{
+        //         curIndex+=1;
+        //     }
+        //     obj.src=arr[curIndex];
+        //     console.log(curIndex);
+        // },5000)
+    </script>
+    <style type="text/css">
+        #obj{
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
